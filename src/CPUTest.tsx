@@ -4,7 +4,7 @@ const AdderWorker = require('worker-loader!./AdderWorker');
 class CPUTest extends React.Component<any, any> {
   constructor(props: Map<any, any>) {
     super(props);
-    this.state = {workers: 1};
+    this.state = {workers: 8};
   }
 
   runAdder = () => {

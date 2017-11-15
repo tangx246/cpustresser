@@ -10,7 +10,7 @@ class App extends React.Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to the CPU Stresser</h2>
+          <h2>Welcome to the <a href="https://github.com/tangx246/cpustresser">CPU Stresser</a></h2>
         </div>
         <CPUTest />
       </div>
