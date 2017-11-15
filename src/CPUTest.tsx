@@ -28,7 +28,7 @@ class CPUTest extends React.Component<any, any> {
           <input type="text" name="workers" value={this.state.workers} onChange={this.handleChange}/>
         </label>
 
-        <button onClick={this.runAdder}>Run Test</button>
+        <button onClick={this.runAdder}>Run Stresser</button>
       </div>
     );
   }

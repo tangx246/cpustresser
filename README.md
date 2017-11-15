@@ -1,6 +1,6 @@
 # CPU Stresser
 Simple way to stress test the CPU. Just insert number of workers desired, and
-the page spawns that many workers to do workers.
+the page spawns that many workers to do work.
 
 Head [here](https://tangx246.github.io/cpustresser/index.html) to test it out.
 
