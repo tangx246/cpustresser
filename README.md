@@ -9,6 +9,7 @@ Currently, the workers merely increment a single value in memory 1 by 1
 - Values should eventually be verified so that we know the CPU is doing
 the right thing
 - Add more meaningful workers than just adders (e.g. the famous GIMPS?)
+- The stress test eventually stops magically. It should go on forever and provide a mechanism for stopping
 
 ## Developers
 To run, just do `npm run build` and then serve the `docs` directory
