@@ -1,16 +1,31 @@
 import * as React from 'react';
 
-class CPUTest extends React.Component {
+class CPUTest extends React.Component<any, any> {
+  constructor(props: Map<any, any>) {
+    super(props);
+    this.state = {workers: 1};
+  }
+
   runAdder = () => {
     var a = 0;
-    for (var i = 0; i < 99999999999999999; i++) {
+    for (var i = 0; i < this.state.workers; i++) {
       a++;
     }
+  }
+
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    var state = {};
+    state[event.target.name] = event.target.value;
+    this.setState(state);
   }
 
   render() {
     return (
       <div className="CPUTest">
+        <label>Workers:
+          <input type="text" name="workers" value={this.state.workers} onChange={this.handleChange}/>
+        </label>
+
         <button onClick={this.runAdder}>Run Test</button>
       </div>
     );
