@@ -1,4 +1,5 @@
 import * as React from 'react';
+const AdderWorker = require('worker-loader!./AdderWorker');
 
 class CPUTest extends React.Component<any, any> {
   constructor(props: Map<any, any>) {
@@ -7,9 +8,10 @@ class CPUTest extends React.Component<any, any> {
   }
 
   runAdder = () => {
-    var a = 0;
     for (var i = 0; i < this.state.workers; i++) {
-      a++;
+      new AdderWorker().postMessage({
+        chunk: 999999999999999999
+      });
     }
   }
 

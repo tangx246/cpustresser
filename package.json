@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build && (rd /S /Q docs || node-mv build docs)",
+    "build": "react-scripts-ts build && (rd /S /Q docs || true) && node-mv build docs",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
   },
@@ -19,6 +19,7 @@
     "@types/jest": "^21.1.6",
     "@types/node": "^8.0.52",
     "@types/react": "^16.0.22",
-    "@types/react-dom": "^16.0.3"
+    "@types/react-dom": "^16.0.3",
+    "worker-loader": "^1.1.0"
   }
 }
