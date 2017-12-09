@@ -34,8 +34,8 @@ class CPUTest extends React.Component<any, any> {
       worker.addEventListener('message', (event: MessageEvent) => {
         this.workProcessed++;
         if (!event.data.success) {
-          this.setState({
-            errors: this.state.errors + 1
+          this.setState((prevState) => {
+            return { errors: prevState.errors + 1 };
           });
         }
       });
