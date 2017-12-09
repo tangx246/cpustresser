@@ -10,7 +10,8 @@ class CPUTest extends React.Component<any, any> {
     super(props);
     this.state = {
       workers: 8,
-      processedPerSecond: 0
+      processedPerSecond: 0,
+      errors: 0
     };
 
     setInterval(() => {
@@ -29,10 +30,14 @@ class CPUTest extends React.Component<any, any> {
     const workerObjects: Worker[] = [];
     for (var i = 0; i < this.state.workers; i++) {
       var worker: Worker = new AdderWorker();
-      worker.postMessage("go");
-      worker.addEventListener("message", (event) => {
+      worker.postMessage('go');
+      worker.addEventListener('message', (event: MessageEvent) => {
         this.workProcessed++;
-        // TODO Report any failures
+        if (!event.data.success) {
+          this.setState({
+            errors: this.state.errors + 1
+          });
+        }
       });
       workerObjects.push(worker);
     }
@@ -46,9 +51,12 @@ class CPUTest extends React.Component<any, any> {
     // Terminate all current workers and then clear state
     this.workerObjects.forEach((worker: Worker) => {
       worker.terminate();
-    })
+    });
     this.workerObjects = [];
     this.workProcessed = 0;
+    this.setState({
+      errors: 0
+    });
   }
 
   handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,6 +72,7 @@ class CPUTest extends React.Component<any, any> {
           <input type="text" name="workers" value={this.state.workers} onChange={this.handleChange}/>
         </label>
         <div>Processed per second {this.state.processedPerSecond}</div>
+        <div>Errors: {this.state.errors}</div>
 
         <button onClick={this.runAdder}>Run Stresser</button>
         <button onClick={this.stopAdder}>Stop Stresser</button>
