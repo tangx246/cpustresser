@@ -11,8 +11,12 @@ Currently, the workers merely increment a single value in memory 1 by 1
 - Add more meaningful workers than just adders (e.g. the famous GIMPS?)
 
 ## Developers
+### Init
+When first cloned, run `npm install`
+
+### Building
 To run, just do `npm run build` and then serve the `docs` directory
 via your favorite web server (e.g. `npm run build && serve -s docs`)
 
-Building also only works on Windows. Just need to patch up the `build` script
+Building also only works on Windows. For other platforms, just need to patch up the `build` script
 in `package.json`
