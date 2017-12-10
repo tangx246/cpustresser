@@ -18,5 +18,4 @@ When first cloned, run `npm install`
 To run, just do `npm run build` and then serve the `docs` directory
 via your favorite web server (e.g. `npm run build && serve -s docs`)
 
-Building also only works on Windows. For other platforms, just need to patch up the `build` script
-in `package.json`
+Building also only works on Windows. The `build` script in `package.json` needs to be made cross-platform
